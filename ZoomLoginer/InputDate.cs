@@ -85,6 +85,15 @@ namespace ZoomLoginer
         public void Load(string dateInfo)
         {
             string[] info = dateInfo.Split(',');
+
+            if(info.Length == 4)
+            {
+                _nameLabel.Text = info[0];
+                _hour.Text = info[1];
+                _minute.Text = info[2];
+                _url.Text = info[3];
+            }
+
         }
     }
 }

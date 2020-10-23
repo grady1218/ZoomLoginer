@@ -26,7 +26,7 @@ namespace ZoomLoginer
         }
         public void Save()
         {
-            StreamWriter writer = new StreamWriter(@"./WeekMeetingInfo.zlo",true);
+            StreamWriter writer = new StreamWriter(@"./WeekMeetingInfo.zlo",false);
             foreach(var ID in InputDates)
             {
                 writer.WriteLine(ID.GetDateInfo());
@@ -37,7 +37,11 @@ namespace ZoomLoginer
         public void Load()
         {
             StreamReader reader = new StreamReader(@"./WeekMeetingInfo.zlo");
-            for (int i = 0; i < InputDates.Length; i++) InputDates[i].Load(reader.ReadLine());
+            for (int i = 0; i < InputDates.Length; i++)
+            {
+                string text = reader.ReadLine();
+                if (text != null) InputDates[i].Load(text);
+            }
             reader.Dispose();
         }
     }

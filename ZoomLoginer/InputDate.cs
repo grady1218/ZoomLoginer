@@ -32,6 +32,12 @@ namespace ZoomLoginer
             _height = height;
         }
 
+        public InputDate(string Info) : base()
+        {
+            GenerateInputDate();
+            Load(Info);
+        }
+
         public void GenerateInputDate(Form form = null)
         {
             int xSize = _width / 4;
